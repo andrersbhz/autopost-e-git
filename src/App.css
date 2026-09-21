@@ -1,0 +1,177 @@
+/* Camada final do design system. Tudo aqui obedece aos tokens configurados em Marca/Vendas. */
+
+html,
+body {
+  font-family: var(--brand-font-family, Inter, system-ui, sans-serif) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-display {
+  font-family: var(--brand-heading-font-family, var(--brand-font-family, Inter, system-ui, sans-serif)) !important;
+}
+
+a:not([data-ui-button="true"]) {
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+a:not([data-ui-button="true"]):hover {
+  color: var(--brand-link-hover, hsl(var(--accent)));
+}
+
+[data-ui-button="true"] {
+  min-height: 2.25rem;
+  border-radius: var(--brand-button-radius, .5rem) !important;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+/* O estado visual dos botões é definido aqui, nunca por cores literais nas páginas. */
+[data-ui-button="true"][data-variant="default"] {
+  background: var(--brand-button-primary-bg, hsl(var(--primary))) !important;
+  color: var(--brand-button-primary-text, hsl(var(--primary-foreground))) !important;
+  border-color: var(--brand-button-primary-bg, hsl(var(--primary))) !important;
+}
+
+[data-ui-button="true"][data-variant="default"]:hover {
+  background: var(--brand-button-primary-hover-bg, hsl(var(--accent))) !important;
+  color: var(--brand-button-primary-hover-text, hsl(var(--accent-foreground))) !important;
+  border-color: var(--brand-button-primary-hover-bg, hsl(var(--accent))) !important;
+  box-shadow: var(--brand-button-hover-shadow, none) !important;
+}
+
+[data-ui-button="true"][data-variant="secondary"],
+[data-ui-button="true"][data-variant="outline"] {
+  background: var(--brand-button-secondary-bg, hsl(var(--secondary))) !important;
+  color: var(--brand-button-secondary-text, hsl(var(--secondary-foreground))) !important;
+  border-color: hsl(var(--border)) !important;
+}
+
+[data-ui-button="true"][data-variant="secondary"]:hover,
+[data-ui-button="true"][data-variant="outline"]:hover {
+  background: var(--brand-button-secondary-hover-bg, hsl(var(--accent))) !important;
+  color: var(--brand-button-secondary-hover-text, hsl(var(--accent-foreground))) !important;
+  border-color: var(--brand-button-secondary-hover-bg, hsl(var(--accent))) !important;
+  box-shadow: var(--brand-button-hover-shadow, none) !important;
+}
+
+[data-ui-button="true"][data-variant="ghost"]:hover {
+  background: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+[data-ui-button="true"][data-variant="destructive"]:hover {
+  background: hsl(var(--destructive)) !important;
+  color: hsl(var(--destructive-foreground)) !important;
+  filter: brightness(1.08);
+}
+
+[data-ui-button="true"][data-variant="link"]:hover {
+  background: transparent !important;
+  color: var(--brand-link-hover, hsl(var(--accent))) !important;
+  text-decoration: underline;
+  transform: none;
+}
+
+body[data-button-hover-style="scale"] [data-ui-button="true"]:hover {
+  transform: translateY(-1px) scale(1.035);
+}
+body[data-button-hover-style="outline"] [data-ui-button="true"]:hover {
+  box-shadow: inset 0 0 0 1px currentColor !important;
+}
+body[data-button-hover-style="standard"] [data-ui-button="true"]:hover,
+body[data-button-hover-style="glow"] [data-ui-button="true"]:hover {
+  transform: translateY(-1px);
+}
+[data-ui-button="true"]:disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+input:not([type="color"]), textarea, select, [role="combobox"] {
+  border-radius: var(--brand-input-radius, .5rem) !important;
+  background-color: hsl(var(--background) / .82) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--input)) !important;
+}
+input::placeholder, textarea::placeholder { color: hsl(var(--muted-foreground) / .72) !important; }
+input:focus, textarea:focus, select:focus, [role="combobox"]:focus { border-color: hsl(var(--primary) / .8) !important; }
+
+.glass, .glass-card, [data-radix-popper-content-wrapper] > div { border-radius: var(--brand-card-radius, .8rem) !important; }
+.glass-card {
+  background: hsl(var(--card) / .94) !important;
+  color: hsl(var(--card-foreground)) !important;
+  border-color: hsl(var(--border)) !important;
+  box-shadow: var(--brand-panel-shadow, none);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+.glass-card:hover { border-color: hsl(var(--primary) / .42) !important; }
+
+/* Tabs: foregrounds calculados pelo runtime impedem texto e fundo com a mesma cor. */
+[role="tab"] {
+  color: hsl(var(--muted-foreground)) !important;
+  border-color: transparent !important;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+[role="tab"]:hover:not([data-state="active"]) {
+  background: var(--brand-tab-hover-bg, hsl(var(--muted) / .7)) !important;
+  color: var(--brand-tab-hover-text, hsl(var(--foreground))) !important;
+  border-color: hsl(var(--border)) !important;
+}
+[role="tab"][data-state="active"] {
+  background: var(--brand-tab-active-bg, hsl(var(--primary))) !important;
+  color: var(--brand-tab-active-text, hsl(var(--primary-foreground))) !important;
+  border-color: var(--brand-tab-active-bg, hsl(var(--primary))) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--brand-tab-active-bg, var(--brand-primary-hex)) 45%, transparent), var(--brand-button-hover-shadow, none) !important;
+}
+
+[role="menuitem"], [role="option"] { border-radius: var(--brand-input-radius, .45rem); }
+[role="menuitem"]:hover, [role="option"]:hover, [role="option"][data-highlighted] {
+  background: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+.space-y-6.lg\:space-y-8.animate-float-up > .glass-card:first-of-type .text-success::before {
+  content: ""; display: inline-block; width: .5rem; height: .5rem; margin-right: .4rem; border-radius: 9999px;
+  background: hsl(var(--success)); box-shadow: 0 0 0 3px hsl(var(--success) / .15), 0 0 10px 2px hsl(var(--success) / .72);
+  vertical-align: middle; animation: social-robot-live 1.35s ease-in-out infinite;
+}
+@keyframes social-robot-live { 0%, 100% { opacity: 1; } 50% { opacity: .48; } }
+
+/* Compatibilidade com telas legadas. Nenhuma cor literal pode ganhar do design system. */
+[class~="text-[#a3ff12]"] { color: var(--brand-primary-hex) !important; }
+[class~="bg-[#a3ff12]"] { background-color: var(--brand-button-primary-bg) !important; color: var(--brand-button-primary-text) !important; }
+[class~="hover:text-[#a3ff12]"]:hover { color: var(--brand-link-hover) !important; }
+[class~="hover:bg-[#a3ff12]/90"]:hover, [class~="hover:bg-[#a3ff12]"]:hover {
+  background-color: var(--brand-button-primary-hover-bg) !important; color: var(--brand-button-primary-hover-text) !important;
+}
+[class~="border-[#a3ff12]"] { border-color: var(--brand-primary-hex) !important; }
+[class~="hover:border-[#a3ff12]"]:hover { border-color: var(--brand-button-primary-hover-bg) !important; }
+[class~="border-[#a3ff12]/20"], [class~="border-[#a3ff12]/30"], [class~="border-[#a3ff12]/40"] { border-color: hsl(var(--primary) / .35) !important; }
+[class~="hover:border-[#a3ff12]/40"]:hover { border-color: hsl(var(--primary) / .6) !important; }
+[class~="bg-[#a3ff12]/10"] { background-color: hsl(var(--primary) / .1) !important; }
+[class~="group-hover:bg-[#a3ff12]/20"] { background-color: hsl(var(--primary) / .18) !important; }
+[class~="text-[#b57bff]"] { color: var(--brand-accent-hex) !important; }
+
+[class~="bg-[#05010f]"][class~="min-h-screen"] { background: var(--brand-sales-background) !important; color: var(--brand-sales-text) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="bg-[#05010f]/40"] { background-color: color-mix(in srgb, var(--brand-sales-background) 70%, transparent) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="bg-white/[0.02]"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="bg-black/20"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="bg-black/30"] { background-color: color-mix(in srgb, var(--brand-sales-surface) 78%, transparent) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="text-white"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="text-white/90"] { color: var(--brand-sales-text) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="text-white/50"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="text-white/60"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="text-white/70"] { color: var(--brand-sales-muted) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="border-white/5"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="border-white/10"],
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class~="border-white/20"] { border-color: hsl(var(--border)) !important; }
+[class~="bg-[#05010f]"][class~="min-h-screen"] [class*="radial-gradient(ellipse_at_top,#1a0033"] {
+  background: radial-gradient(ellipse at top, color-mix(in srgb, var(--brand-accent-hex) 22%, var(--brand-sales-background)) 0%, var(--brand-sales-background) 68%, var(--brand-sales-background) 100%) !important;
+}
+
+::-webkit-scrollbar-thumb, .custom-scrollbar::-webkit-scrollbar-thumb { background: hsl(var(--primary) / .62) !important; border-color: hsl(var(--background)) !important; }
+::-webkit-scrollbar-thumb:hover, .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: hsl(var(--primary) / .9) !important; box-shadow: 0 0 8px hsl(var(--primary) / .55) !important; }
+* { scrollbar-color: hsl(var(--primary) / .68) hsl(var(--background)); }
+.neon-border-lilac, .neon-border-pink, .neon-border-blue { border-color: hsl(var(--primary) / .4) !important; box-shadow: 0 0 10px hsl(var(--primary) / .15) !important; }
+.neon-border-lilac:hover, .neon-border-pink:hover, .neon-border-blue:hover { border-color: hsl(var(--primary) / .9) !important; box-shadow: 0 0 22px hsl(var(--primary) / .42) !important; }

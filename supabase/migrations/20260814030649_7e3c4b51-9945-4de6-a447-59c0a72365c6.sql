@@ -1,0 +1,1 @@
+GRANT SELECT (facebook_enabled, instagram_enabled, disconnected_at) ON public.facebook_accounts TO authenticated;

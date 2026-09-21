@@ -1,0 +1,1 @@
+ALTER TABLE public.user_settings ADD COLUMN IF NOT EXISTS image_knowledge_urls text[] NOT NULL DEFAULT '{}';

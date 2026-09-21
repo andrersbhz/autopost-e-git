@@ -1,0 +1,1 @@
+UPDATE public.user_settings SET gemini_model = NULL WHERE gemini_model ~* '^gemini-(1\.0|1\.5|pro)';

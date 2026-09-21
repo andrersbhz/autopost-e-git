@@ -1,0 +1,16 @@
+project_id = "bvvhgwkjyfnjroudtbav"
+
+[functions.facebook-oauth-callback]
+verify_jwt = false
+
+[functions.threads-oauth-callback]
+verify_jwt = false
+
+[functions.automation-engine]
+verify_jwt = false
+
+[functions.google-search-console-status]
+verify_jwt = false
+
+[functions.send-email]
+verify_jwt = false

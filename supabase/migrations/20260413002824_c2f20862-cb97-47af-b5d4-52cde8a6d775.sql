@@ -1,0 +1,1 @@
+GRANT SELECT (user_id, writer_prompt, wordpress_url, wordpress_username, google_analytics_property_id, facebook_page_id, instagram_account_id, categories, articles_per_day, auto_publish) ON public.user_settings TO authenticated;

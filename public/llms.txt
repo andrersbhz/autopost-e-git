@@ -1,0 +1,16 @@
+# Neural Vortex
+
+> Plataforma de automação de blog e redes sociais por IA: gera artigos, publica no WordPress, agenda posts e mede desempenho.
+
+## Pages
+
+- [Início (PT-BR)](/pt-br): Página inicial do blog com últimas notícias e categorias.
+- [Início (EN)](/en): Blog home in English.
+- [Início (ES)](/es): Inicio del blog en español.
+- [Sobre](/pt-br/sobre): Quem somos e missão editorial.
+- [Contato](/pt-br/contato): Como entrar em contato.
+- [Princípios editoriais](/pt-br/principios-editoriais): Padrões de conteúdo e correções.
+- [Privacidade](/pt-br/privacidade): Política de privacidade.
+- [Termos](/pt-br/termos): Termos de uso.
+- [Anuncie](/pt-br/anuncie): Oportunidades de publicidade.
+- [Newsletter](/pt-br/newsletter): Assine a newsletter.

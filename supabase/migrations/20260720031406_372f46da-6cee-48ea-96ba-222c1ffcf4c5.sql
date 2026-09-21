@@ -1,0 +1,1 @@
+UPDATE platform_settings SET plans_json = jsonb_set(jsonb_set(plans_json::jsonb, '{1,amountBRL}', '49.9'::jsonb), '{1,price}', '"R$ 49,90"'::jsonb);

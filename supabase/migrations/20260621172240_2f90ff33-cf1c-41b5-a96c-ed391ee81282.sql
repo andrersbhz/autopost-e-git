@@ -1,0 +1,1 @@
+ALTER TABLE public.user_settings ADD COLUMN IF NOT EXISTS priority_categories text[] NOT NULL DEFAULT '{}'::text[];

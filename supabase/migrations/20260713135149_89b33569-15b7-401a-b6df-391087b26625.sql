@@ -1,0 +1,1 @@
+REVOKE SELECT (user_id) ON public.authors FROM anon;

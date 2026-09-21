@@ -1,0 +1,1 @@
+GRANT SELECT (user_id) ON public.authors TO authenticated;

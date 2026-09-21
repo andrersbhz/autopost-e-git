@@ -1,0 +1,3 @@
+ALTER TABLE public.user_settings 
+ADD COLUMN IF NOT EXISTS trends_refresh_interval INTEGER DEFAULT 30,
+ADD COLUMN IF NOT EXISTS last_trends_fetch TIMESTAMP WITH TIME ZONE;

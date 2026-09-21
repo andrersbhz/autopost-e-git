@@ -1,0 +1,1 @@
+ALTER TABLE public.trending_topics ADD COLUMN IF NOT EXISTS context TEXT;

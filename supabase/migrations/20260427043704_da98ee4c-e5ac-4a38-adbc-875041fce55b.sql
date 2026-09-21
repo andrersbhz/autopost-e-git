@@ -1,0 +1,4 @@
+ALTER TABLE public.articles 
+ADD COLUMN IF NOT EXISTS image_alt TEXT,
+ADD COLUMN IF NOT EXISTS image_caption TEXT,
+ADD COLUMN IF NOT EXISTS visual_elements JSONB;

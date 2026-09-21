@@ -1,0 +1,63 @@
+/* Focused structural fixes layered after the legacy theme CSS.
+   Keep branding tokens intact while removing layout collisions. */
+
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+}
+
+main,
+main > *,
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Settings currently renders seven triggers while the legacy class declares six columns. */
+[role="tablist"].md\:grid-cols-6 {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.25rem;
+}
+
+[role="tablist"].md\:grid-cols-6 > [role="tab"] {
+  min-width: 0;
+  white-space: normal;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  [role="tablist"].md\:grid-cols-6 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  [role="tablist"].md\:grid-cols-6 {
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Prevent fixed-height workspaces from clipping dialogs/content on smaller screens. */
+@media (max-width: 1279px) {
+  .media-studio-workspace {
+    height: auto !important;
+  }
+}
+
+/* Radix popovers/selects should not exceed the viewport on compact layouts. */
+[data-radix-popper-content-wrapper] {
+  max-width: min(100vw - 1rem, var(--radix-popper-available-width, 100vw));
+}
+
+/* Long URLs/tokens were forcing cards wider than their grid column. */
+.glass-card,
+[role="tabpanel"] {
+  min-width: 0;
+}
+
+.glass-card input,
+.glass-card textarea,
+.glass-card [role="combobox"] {
+  max-width: 100%;
+}
